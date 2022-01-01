@@ -3,37 +3,41 @@
 
 
 
-    game();
+ 
 
 
 function game(){
     let countOfPlayerWinnig=0;
     let countOfComputerWinnig=0;
+    let countOfDrawing=0;
     for(i=1;i<=5;i++){
         let playerSelection=prompt("enter your selection:1-rock  2-papar 3-scissers");
         let theWinner=playRound(playerSelection);
         if(theWinner==="player")
             countOfPlayerWinnig++;
-        if(theWinner==="computer")
+        else if(theWinner==="computer")
             countOfComputerWinnig++;
+             else countOfDrawing++;
     }
     console.log("************************")
     if (countOfPlayerWinnig>countOfComputerWinnig)
-        console.log("you are final winner");
-        else 
-            console.log("computer is final winner");
-    console.log("the number of computer winnig:"+countOfComputerWinnig , "the number of player winnig:"+countOfPlayerWinnig);
+    document.getElementById('finalWinner').innerHTML="you are final winner";
+        else if(countOfComputerWinnig>countOfPlayerWinnig)
+        document.getElementById('finalWinner').innerHTML="computer is final winner";
+            else document.getElementById('finalWinner').innerHTML="Draw";
+        document.getElementById('finalResult').innerHTML="the count of player winning =  "+countOfPlayerWinnig+" <br/> the count of computer winnig =   "+countOfComputerWinnig+" <br/> the count of drawing = "+countOfDrawing;
 }
 function playRound(playerSelection){
     let playerSelectionValue=playerPlay(playerSelection);
     let computerSelection=computerPlay();
     console.log(computerSelection,playerSelectionValue);
  if ((computerSelection=="scissors"&&playerSelectionValue=="rock")||(computerSelection=="rock"&&playerSelectionValue=="paper")||(computerSelection=="paper"&&playerSelectionValue=="scissors")){
- console.log("------------player is Winner => "+playerSelectionValue+" beat "+computerSelection);
+    console.log("------------player is Winner => "+playerSelectionValue+" beat "+computerSelection);
  return "player";
  }
  else if((playerSelectionValue=="scissors"&& computerSelection=="rock")||(playerSelectionValue=="rock"&&computerSelection=="paper")||(playerSelectionValue=="paper"&&computerSelection=="scissors")){
-console.log("+++++++++++++computer is Winner => "+computerSelection+" beat "+playerSelectionValue);
+    console.log("+++++++++++++computer is Winner => "+computerSelection+" beat "+playerSelectionValue);
+
 return "computer"; 
 }
         else console.log("both are the same try again");
