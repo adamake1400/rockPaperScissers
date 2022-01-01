@@ -2,8 +2,10 @@
 
 
 
-//playRound(computerSelectionValue,playerSelectionValue);
-game();
+
+    game();
+
+
 function game(){
     let countOfPlayerWinnig=0;
     let countOfComputerWinnig=0;
