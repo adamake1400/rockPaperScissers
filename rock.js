@@ -1,11 +1,4 @@
 
-
-
-
-
- 
-
-
 function game(){
     let countOfPlayerWinnig=0;
     let countOfComputerWinnig=0;
@@ -27,6 +20,8 @@ function game(){
             else document.getElementById('finalWinner').innerHTML="Draw";
         document.getElementById('finalResult').innerHTML="the count of player winning =  "+countOfPlayerWinnig+" <br/> the count of computer winnig =   "+countOfComputerWinnig+" <br/> the count of drawing = "+countOfDrawing;
 }
+
+//PlayRound function to specify winner
 function playRound(playerSelection){
     let playerSelectionValue=playerPlay(playerSelection);
     let computerSelection=computerPlay();
@@ -43,6 +38,7 @@ return "computer";
         else console.log("both are the same try again");
  console.log("---------------------");
 }
+//speify computer selection
 function computerPlay(){
     let computerSelection=randomNumber().toString();
     switch(computerSelection){
